@@ -11,11 +11,16 @@ import SwiftUI
 struct NotizenAppApp: App {
     
     @StateObject private var dataController = DataController(name: "Model")
+    @State private var filter = ""
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+            VStack {
+                ContentView(filter: filter)
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
+                TextField("Filter", text: $filter).padding(.horizontal)
+            }
+            
         }
     }
 }
