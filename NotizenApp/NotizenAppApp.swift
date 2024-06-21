@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct NotizenAppApp: App {
+    
+    @StateObject private var dataController = DataController(name: "Model")
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
