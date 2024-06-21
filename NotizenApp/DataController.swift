@@ -1,5 +1,5 @@
 //
-//  DataControler.swift
+//  DataController.swift
 //  NotizenApp
 //
 //  Created by Julian on 21/06/2024.

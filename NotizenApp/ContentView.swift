@@ -9,26 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var notes: [String] = []
-    @State var note: String = ""
+    @State var notizen: [String] = []
+    @State var notiz = ""
     
     var body: some View {
         NavigationView {
             VStack {
-                List() {
-                    ForEach(notes, id: \.self) {note in
-                        Text(note)
+                List {
+                    ForEach(notizen, id: \.self) { notiz in
+                            Text(notiz)
                     }
                     .onDelete(perform: { indexSet in
-                        notes.remove(atOffsets: indexSet)
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Code@*/ /*@END_MENU_TOKEN@*/
                     })
                 }
-                .navigationTitle("Notes")
+                .navigationTitle("Notizen")
                 HStack {
-                    TextField("New note", text: $note)
-                    Button("Add") {
-                        notes.append(note)
-                        note = ""
+                    TextField("Neue Notiz", text: $notiz)
+                    Button("Hinzufügen") {
+                        notizen.append(notiz)
+                        notiz = ""
                     }
                 }.padding(.horizontal)
             }
